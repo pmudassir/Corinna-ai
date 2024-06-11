@@ -8,7 +8,7 @@ type InitialValueProps = {
 
 const InitialValues: InitialValueProps = {
   currentStep: 1,
-  setCurrentStep: () => {},
+  setCurrentStep: () => undefined,
 };
 
 const authContext = React.createContext(InitialValues);

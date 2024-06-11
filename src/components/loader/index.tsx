@@ -20,6 +20,8 @@ export const Loader = ({
       <Spinner noPadding={noPadding} />
     </div>
   ) : (
-    children
+    <>
+    {children}
+    </>
   );
 };

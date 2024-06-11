@@ -1,5 +1,6 @@
 import React from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
+import UserTypeCard from "./user-type-card";
 
 type Props = {
   register: UseFormRegister<FieldValues>;
@@ -15,6 +16,22 @@ const TypeSelectionForm = ({ register, setUserType, userType }: Props) => {
         Tell us about yourself! What do you do? Let's tailor your <br />{" "}
         experience so it best suites you.
       </p>
+      <UserTypeCard
+        value="owner"
+        title="I own a business"
+        text="Setting up my account for my company"
+        setUserType={setUserType}
+        userType={userType}
+        register={register}
+      />
+      <UserTypeCard
+        value="student"
+        title="I am a student"
+        text="Looking to learn about the tool"
+        setUserType={setUserType}
+        userType={userType}
+        register={register}
+      />
     </>
   );
 };
