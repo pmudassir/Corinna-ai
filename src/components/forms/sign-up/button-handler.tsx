@@ -43,8 +43,8 @@ const ButtonHandler = (props: Props) => {
             isPassword && {
               onClick: () =>
                 onGenerateOTP(
-                  getValues("fullname"),
                   getValues("email"),
+                  getValues("password"),
                   setCurrentStep
                 ),
             })}>
