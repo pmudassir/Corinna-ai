@@ -41,7 +41,8 @@ export const onLoginUser = async () => {
     const authenticated = await client.user.findUnique({
       where: {
         clerkId: user.id
-      }, select: {
+      },
+      select: {
         fullname: true,
         id: true,
         type: true,

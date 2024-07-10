@@ -1,4 +1,5 @@
 "use client";
+import useSidebar from "@/context/use-sidebar";
 import React from "react";
 
 type Props = {
@@ -14,7 +15,7 @@ type Props = {
 
 const Sidebar = ({ domains }: Props) => {
   const { expand, onExpand, page, onSignOut } = useSidebar();
-  
+
   return <div>Sidebar</div>;
 };
 

@@ -28,3 +28,20 @@ export const onToggleRealTime = async (id: string, state: boolean) => {
     console.log(error);
   }
 }
+
+export const onGetConversationMode = async (id: string) => {
+  try {
+    const mode = await client.chatRoom.findUnique({
+      where: {
+        id
+      },
+      select: {
+        live: true
+      }
+    })
+
+    return mode
+  } catch (error) {
+    console.log(error);
+  }
+}
