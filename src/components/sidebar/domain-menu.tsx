@@ -12,7 +12,7 @@ type Props = {
     | undefined;
 };
 
-const DomainMenu = (props: Props) => {
+const DomainMenu = ({ domains, min }: Props) => {
   return <div>DomainMenu</div>;
 };
 

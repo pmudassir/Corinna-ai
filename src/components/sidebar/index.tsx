@@ -1,6 +1,8 @@
 "use client";
 import useSidebar from "@/context/use-sidebar";
+import { cn } from "@/lib/utils";
 import React from "react";
+import MaxMenu from "./maximized-menu";
 
 type Props = {
   domains:
@@ -16,7 +18,32 @@ type Props = {
 const Sidebar = ({ domains }: Props) => {
   const { expand, onExpand, page, onSignOut } = useSidebar();
 
-  return <div>Sidebar</div>;
+  return (
+    <div
+      className={cn(
+        "bg-cream h-full w-[60px] fill-mode-forward fixed md:relative",
+        expand == undefined && "",
+        expand == true
+          ? "animate-open-sidebar"
+          : expand == false && "animate-close-sidebar"
+      )}>
+      {expand ? (
+        <MaxMenu
+          domains={domains}
+          current={page!}
+          onExpand={onExpand}
+          onSignOut={onSignOut}
+        />
+      ) : (
+        <MinMenu
+          domains={domains}
+          onShrink={onExpand}
+          current={page!}
+          onSignOut={onSignOut}
+        />
+      )}
+    </div>
+  );
 };
 
 export default Sidebar;
