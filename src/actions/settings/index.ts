@@ -1,6 +1,6 @@
 'use server'
 import { client } from "@/lib/prisma";
-import { currentUser } from "@clerk/nextjs";
+import { clerkClient, currentUser } from "@clerk/nextjs";
 
 export const onIntegrateDomain = async (domain: string, icon: string) => {
   const user = await currentUser()
@@ -75,7 +75,7 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
           "You've reached the maximum number of domains, upgrade your plan",
       }
     }
-    
+
     return {
       status: 400,
       message: 'Domain already exists',
@@ -142,5 +142,22 @@ export const onGetAllAccountDomains = async () => {
     return { ...domains }
   } catch (error) {
     return { status: 400 }
+  }
+}
+
+export const onUpdatePassword = async (password: string) => {
+  try {
+    const user = await currentUser();
+    if (!user) return
+
+    const update = await clerkClient.users.updateUser(user.id, {
+      password,
+    })
+
+    if (update) {
+      return { status: 200, message: 'Password successfully updated' }
+    }
+  } catch (error) {
+    console.log(error);
   }
 }

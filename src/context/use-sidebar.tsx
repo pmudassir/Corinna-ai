@@ -67,6 +67,7 @@ const useSidebar = () => {
     onActivateRealTime,
     chatRoom,
     loading,
+    realtime,
   };
 };
 
