@@ -5,8 +5,7 @@ import {
 } from "@/actions/conversation";
 import { useToast } from "@/components/ui/use-toast";
 import { useClerk } from "@clerk/nextjs";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useChatContext } from "./user-chat-context";
 

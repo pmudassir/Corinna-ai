@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/context/theme-provider";
 
@@ -19,12 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={jakarta.className}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light" //change to system & uncomment the below line
-            // enableSystem
+            defaultTheme="light"
             disableTransitionOnChange>
             {children}
             <Toaster />

@@ -4,7 +4,6 @@ import React from "react";
 type Props = {};
 
 const BreadCrumb = (props: Props) => {
-  // WIP: Set up use sidebar hook for real time chat and chatbot stuff
   return (
     <div className="flex flex-col">
       <div className="flex gap-5 items-center">
